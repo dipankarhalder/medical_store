@@ -1,8 +1,8 @@
 import http from 'http';
 import cors from 'cors';
+import logger from 'morgan';
 import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 
@@ -20,11 +20,12 @@ mongoose.connect(MONGOPATH);
 mongoose.connection.on('error', (error) => console.error(mongo_error, error));
 mongoose.connection.once('open', () => console.log(mongo_success));
 
-app.use(cors({ credentials: true }));
-app.use(compression());
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use('/', router());
+app.use(cors({ origin: "*", }))
+  .use(logger(':method :url :status :response-time --- :res[content-length] - :total-time ms'))
+  .use(compression())
+  .use(cookieParser())
+  .use(express.json())
+  .use('/', router());
 
 const server = http.createServer(app);
 server.listen(PORT, () => console.log(`${app_server} ${PORT}`));
