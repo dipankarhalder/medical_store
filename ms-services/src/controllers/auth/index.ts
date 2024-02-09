@@ -3,9 +3,11 @@ import bcrypt from 'bcryptjs';
 
 import { UserModel } from '../../db/users';
 import { IUser } from '../../interface/auth';
-import { _getListByField, } from '../../db/shared';
-import { random } from '../../helper';
-import { log_schema, reg_schema } from "../../validation"
+import { generateJWTtoken } from '../../helper';
+import { 
+  log_schema, 
+  reg_schema 
+} from "../../validation"
 import { 
   cookie_title, 
   exist_user,
@@ -22,7 +24,10 @@ import {
   @endpoint: /v1/auth/signup
   @details: register
 */
-export const register = async (req: Request, res: Response) => {
+export const register = async (
+  req: Request, 
+  res: Response
+) => {
   const { 
     first_name, 
     last_name, 
@@ -31,6 +36,7 @@ export const register = async (req: Request, res: Response) => {
     password 
   } = req.body;
 
+  // validate field
   const { error } = reg_schema.validate({ 
     first_name, 
     last_name, 
@@ -45,6 +51,7 @@ export const register = async (req: Request, res: Response) => {
   } 
 
   try {
+    // find email exist or not
     const existing_email = await UserModel.findOne({ email });
     if (existing_email) {
       return res.status(400).json({ 
@@ -52,19 +59,21 @@ export const register = async (req: Request, res: Response) => {
       });
     }
     
+    // hasing password
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
 
-    const user: IUser = new UserModel({
+    const user: IUser = new UserModel({ 
       first_name, 
       last_name, 
       email, 
       phone, 
       password: hashed, 
-      token: random(),
-    })
+    });
 
+    // save user
     await user.save();
+
     return res.json({ 
       code: 200, 
       data: { 
@@ -75,6 +84,7 @@ export const register = async (req: Request, res: Response) => {
       }, 
       message: successfully_created 
     }).end();
+
   } catch (error) {
     return res.json({ 
       code: 400, 
@@ -89,12 +99,16 @@ export const register = async (req: Request, res: Response) => {
   @endpoint: /v1/auth/signin
   @details: login
 */
-export const login = async (req: Request, res: Response) => {
+export const login = async (
+  req: Request, 
+  res: Response
+) => {
   const { 
     email, 
     password 
   } = req.body;
 
+  // validate field
   const { error } = log_schema.validate({ 
     email, 
     password 
@@ -106,6 +120,7 @@ export const login = async (req: Request, res: Response) => {
   }
 
   try {
+    // find user by email
     const current_user = await UserModel.findOne({ email });
     if (!current_user) {
       return res.status(400).json({ 
@@ -113,6 +128,7 @@ export const login = async (req: Request, res: Response) => {
       });
     }
     
+    // validate password
     const valid_password = await bcrypt.compare(password, current_user.password);
     if (!valid_password) {
       return res.status(400).json({ 
@@ -120,13 +136,20 @@ export const login = async (req: Request, res: Response) => {
       });
     }
 
-    const token = random();
-    res.cookie(cookie_title, token);
+    // generate token
+    const token = generateJWTtoken(email);
+    res.cookie(
+      cookie_title, 
+      token, 
+      { httpOnly: true }
+    );
+
     return res.json({ 
       code: 200, 
       data: token, 
       message: successfully_login 
     }).end();
+
   } catch (error) {
     return res.json({ 
       code: 400, 
@@ -141,7 +164,12 @@ export const login = async (req: Request, res: Response) => {
   @endpoint: /v1/auth/logout
   @details: logout
 */
-export const logout = async (req: Request, res: Response) => {
+export const logout = async (
+  req: Request, 
+  res: Response
+) => {
+
+  // remove cookie
   res.clearCookie(cookie_title);
   return res.json({ 
     code: 200,
