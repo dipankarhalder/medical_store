@@ -49,3 +49,21 @@ export const log_schema = Joi.object({
     "any.required": 'Password is a required field.',
   }),
 });
+
+
+export const update_schema = Joi.object({
+  first_name: Joi.string().required().messages({
+    "string.base": 'First name should be a type of string.',
+    "string.empty": 'First name can not be an empty field.',
+    "any.required": 'First name is a required field.',
+  }),
+  last_name: Joi.string().required().messages({
+    "string.base": 'Last name should be a type of string.',
+    "string.empty": 'Last name can not be an empty field.',
+    "any.required": 'Last name is a required field.',
+  }),
+  phone: Joi.string().regex(/^[0-9]{10}$/).messages({
+    "string.base": 'Phone number should be a type of string.',
+    "string.pattern.base": `Phone number must have 10 digits.`,
+  }),
+});

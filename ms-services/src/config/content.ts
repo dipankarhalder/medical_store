@@ -19,3 +19,7 @@ export const something_wrong = 'Something went wrong, please try again later';
 export const successfully_login = 'Successfully logged-in';
 export const successfully_logout = 'Successfully logged-out';
 export const successfully_created = 'Successfully created';
+export const successfully_updated = 'Successfully updated';
+export const successfully_deleted = 'successfully deleted';
+export const empty_list = 'The list is empty';
+export const lists_of_items = 'Successfully loaded all the list of items here';
