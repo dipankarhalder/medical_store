@@ -32,7 +32,7 @@ mongoose.connection.once('open',
 );
 
 app.use(cors({ origin: "*", }))
-  .use(logger(':method :url :status :response-time --- :res[content-length] - :total-time ms'))
+  .use(logger(':method, :url, :status, :response-time, :total-time ms'))
   .use(compression())
   .use(cookieParser())
   .use(express.json())
