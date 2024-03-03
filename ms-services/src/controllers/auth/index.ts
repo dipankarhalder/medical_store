@@ -33,7 +33,8 @@ export const register = async (
     last_name, 
     email, 
     phone, 
-    password 
+    password,
+    role 
   } = req.body;
 
   // validate field
@@ -42,7 +43,8 @@ export const register = async (
     last_name, 
     email, 
     phone, 
-    password 
+    password,
+    role,
   });
   if(error) {
     return res.status(400).json({ 
@@ -69,6 +71,7 @@ export const register = async (
       email, 
       phone, 
       password: hashed, 
+      role,
     });
 
     // save user
@@ -80,7 +83,8 @@ export const register = async (
         first_name, 
         last_name, 
         email, 
-        phone, 
+        phone,
+        role 
       }, 
       message: successfully_created 
     }).end();
@@ -136,7 +140,7 @@ export const login = async (
       });
     }
 
-    // generate token
+    // generate token and set it to cookie
     const token = generateJWTtoken(email);
     res.cookie(
       cookie_title, 

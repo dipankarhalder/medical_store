@@ -4,7 +4,7 @@ export const mongo_error = 'DB Connection failed!';
 
 // app server
 export const app_server = 'Server running on:';
-export const cookie_title = 'MEDICAL-STORE';
+export const cookie_title = 'MEDICAL-STORE-DATA';
 
 // authentication validation
 export const user_validate = 'Username should not be blank.';
