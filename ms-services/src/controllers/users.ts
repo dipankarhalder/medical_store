@@ -1,8 +1,14 @@
 import { Request, Response } from 'express';
 
-import { UserModel } from '../../db/users';
-import { update_schema } from "../../validation"
-import { lists_of_items, successfully_updated, successfully_deleted, empty_list, something_wrong } from '../../config/content';
+import { UserModel } from '../db/users';
+import { update_schema } from "../validation"
+import { 
+  empty_list, 
+  lists_of_items, 
+  successfully_updated, 
+  successfully_deleted, 
+  something_wrong 
+} from '../config/content';
 
 /* 
   @method: GET
