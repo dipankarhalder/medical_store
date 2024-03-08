@@ -1,8 +1,8 @@
-/* 
-  * name: mediacla store
-  * port: port no.
-  * Json Secrat
-*/
+/*
+ * name: mediacla store
+ * port: port no.
+ * Json Secrat
+ */
 export const app_config = {
   PORT: 4000,
   JWTSECRET: 'medicalStore',
