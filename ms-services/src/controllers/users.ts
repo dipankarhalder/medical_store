@@ -21,13 +21,44 @@ export const get_all_users = async (
 ) => {
   try {
     const users = await UserModel.find();
-    return res
-      .json({
-        code: 200,
-        data: users,
-        message: !users ? lists_of_items : empty_list,
-      })
-      .end();
+    return res.json({
+      code: 200,
+      data: users,
+      message: !users ? lists_of_items : empty_list,
+    });
+  } catch (err) {
+    return res.json({
+      code: 400,
+      data: null,
+      message: something_wrong,
+    });
+  }
+};
+
+/* 
+  @method: GET
+  @endpoint: /v1/user/:userid
+  @details: user info
+*/
+export const get_user = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const { userid } = req.params;
+    const view_info = await UserModel.findById(userid);
+    const user_info = {
+      first_name: view_info.first_name,
+      last_name: view_info.last_name,
+      phone: view_info.phone,
+      email: view_info.email,
+      role: view_info.role,
+    };
+    return res.json({
+      code: 200,
+      data: user_info,
+      message: null,
+    });
   } catch (err) {
     return res.json({
       code: 400,
@@ -39,7 +70,7 @@ export const get_all_users = async (
 
 /* 
   @method: PATCH
-  @endpoint: /v1/user/:id
+  @endpoint: /v1/user/:userid
   @details: update user
 */
 export const update_user = async (
@@ -67,13 +98,11 @@ export const update_user = async (
       phone,
     });
     const updated_info = await UserModel.findById(userid);
-    return res
-      .json({
-        code: 200,
-        data: updated_info,
-        message: successfully_updated,
-      })
-      .end();
+    return res.json({
+      code: 200,
+      data: updated_info,
+      message: successfully_updated,
+    });
   } catch (err) {
     return res.json({
       code: 400,
@@ -85,7 +114,7 @@ export const update_user = async (
 
 /* 
   @method: DELETE
-  @endpoint: /v1/user/:id
+  @endpoint: /v1/user/:userid
   @details: delete user
 */
 export const remove_user = async (
@@ -96,13 +125,11 @@ export const remove_user = async (
     const { userid } = req.params;
     const view_info = await UserModel.findById(userid);
     await UserModel.findOneAndDelete({ _id: userid });
-    return res
-      .json({
-        code: 200,
-        data: null,
-        message: `${view_info.email} ${successfully_deleted}`,
-      })
-      .end();
+    return res.json({
+      code: 200,
+      data: null,
+      message: `${view_info.email} ${successfully_deleted}`,
+    });
   } catch (err) {
     return res.json({
       code: 400,
