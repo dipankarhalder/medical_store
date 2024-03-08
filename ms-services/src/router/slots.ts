@@ -1,18 +1,18 @@
 import { Router } from 'express';
 
-import { 
-  CREATESLOT, 
-  LISTSLOTS, 
+import {
+  CREATESLOT,
+  LISTSLOTS,
   VIEWSLOT,
-  UPDATESLOT, 
-  DELETESLOT 
+  UPDATESLOT,
+  DELETESLOT,
 } from '../config/routers';
-import { 
-  create_slots, 
-  get_all_slots, 
+import {
+  create_slots,
+  get_all_slots,
   view_slot,
-  update_slot, 
-  remove_slot 
+  update_slot,
+  remove_slot,
 } from '../controllers/slots';
 
 export default (router: Router) => {
