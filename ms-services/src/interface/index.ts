@@ -8,3 +8,7 @@ export interface IUser extends Document {
   password: string,
   role: string,
 }
+
+export interface ISlot extends Document {
+  slot_name: string,
+}
