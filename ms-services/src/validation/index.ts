@@ -50,7 +50,6 @@ export const log_schema = Joi.object({
   }),
 });
 
-
 export const update_schema = Joi.object({
   first_name: Joi.string().required().messages({
     "string.base": 'First name should be a type of string.',
@@ -65,5 +64,13 @@ export const update_schema = Joi.object({
   phone: Joi.string().regex(/^[0-9]{10}$/).messages({
     "string.base": 'Phone number should be a type of string.',
     "string.pattern.base": `Phone number must have 10 digits.`,
+  }),
+});
+
+export const slots_schema = Joi.object({
+  slot_name: Joi.string().required().messages({
+    "string.base": 'Slot name should be a type of string.',
+    "string.empty": 'Slot name can not be an empty field.',
+    "any.required": 'Slot name is a required field.',
   }),
 });

@@ -10,6 +10,7 @@ export const cookie_title = 'MEDICAL-STORE-DATA';
 export const user_validate = 'Username should not be blank.';
 export const email_validate = 'Email should not be blank.';
 export const exist_user = 'already associated with another user.';
+export const exist_item = 'Already exist in the records.';
 export const not_email = 'is not associated with any account, Please enter correct email.';
 export const password_validate = 'Password should not be blank.';
 export const wrong_password = 'Sorry! You have entered wrong password. Please try again.';
