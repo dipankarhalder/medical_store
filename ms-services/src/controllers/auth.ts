@@ -69,13 +69,11 @@ export const register = async (
       role,
     });
     await user.save();
-    return res
-      .json({
-        code: 200,
-        data: { first_name, last_name, email, phone, role },
-        message: successfully_created,
-      })
-      .end();
+    return res.json({
+      code: 200,
+      data: { first_name, last_name, email, phone, role },
+      message: successfully_created,
+    });
   } catch (error) {
     return res.json({
       code: 400,
@@ -126,13 +124,11 @@ export const login = async (
 
     const token = generateJWTtoken(email);
     res.cookie(cookie_title, token, { httpOnly: true });
-    return res
-      .json({
-        code: 200,
-        data: token,
-        message: successfully_login,
-      })
-      .end();
+    return res.json({
+      code: 200,
+      data: token,
+      message: successfully_login,
+    });
   } catch (error) {
     return res.json({
       code: 400,
@@ -152,11 +148,9 @@ export const logout = async (
   res: Response
 ) => {
   res.clearCookie(cookie_title);
-  return res
-    .json({
-      code: 200,
-      data: null,
-      message: successfully_logout,
-    })
-    .end();
+  return res.json({
+    code: 200,
+    data: null,
+    message: successfully_logout,
+  });
 };

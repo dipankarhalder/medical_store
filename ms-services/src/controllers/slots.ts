@@ -52,7 +52,7 @@ export const view_slot = async (
     return res.json({
       code: 200,
       data: view_info,
-      message: `${successfully_deleted}`,
+      message: null,
     });
   } catch (err) {
     return res.json({
