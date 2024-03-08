@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IUser } from "../interface";
+import { IUser } from '../interface';
 
 const UserSchema: Schema = new Schema(
   {
@@ -8,9 +8,12 @@ const UserSchema: Schema = new Schema(
     phone: { type: String },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    role: { type: String, required: true }
+    role: { type: String, required: true },
   },
-  { timestamps: true, }
+  { timestamps: true }
 );
 
-export const UserModel = mongoose.model<IUser>('User', UserSchema);
+export const UserModel = mongoose.model<IUser>(
+  'User',
+  UserSchema
+);

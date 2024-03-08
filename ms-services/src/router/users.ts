@@ -1,14 +1,14 @@
 import { Router } from 'express';
 
-import { 
-  LISTUSERS, 
-  UPDATEUSER, 
-  DELETEUSER 
+import {
+  LISTUSERS,
+  UPDATEUSER,
+  DELETEUSER,
 } from '../config/routers';
-import { 
-  get_all_users, 
-  update_user, 
-  remove_user 
+import {
+  get_all_users,
+  update_user,
+  remove_user,
 } from '../controllers/users';
 
 export default (router: Router) => {
