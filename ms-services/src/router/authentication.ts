@@ -1,7 +1,15 @@
 import { Router } from 'express';
 
-import { REGISTER, LOGIN, LOGOUT } from '../config/routers';
-import { register, login, logout } from '../controllers/auth';
+import { 
+  REGISTER, 
+  LOGIN, 
+  LOGOUT 
+} from '../config/routers';
+import { 
+  register, 
+  login, 
+  logout 
+} from '../controllers/auth';
 
 export default (router: Router) => {
   router.post(REGISTER, register);
