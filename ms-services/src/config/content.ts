@@ -32,3 +32,9 @@ export const successfully_deleted = 'successfully deleted';
 export const empty_list = 'The list is empty';
 export const lists_of_items =
   'Successfully loaded all the list of items here';
+
+// medicine
+export const revalidate_medicine =
+  'already exist, Please re-validate the medicine name.';
+export const revalidate_busket =
+  'already exist, Please re-validate the busket id.';

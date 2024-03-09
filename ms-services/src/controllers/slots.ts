@@ -26,7 +26,7 @@ export const get_all_slots = async (
     return res.json({
       code: 200,
       data: slots,
-      message: !slots ? lists_of_items : empty_list,
+      message: !slots ? empty_list : lists_of_items,
     });
   } catch (err) {
     return res.json({

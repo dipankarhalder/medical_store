@@ -24,7 +24,7 @@ export const get_all_users = async (
     return res.json({
       code: 200,
       data: users,
-      message: !users ? lists_of_items : empty_list,
+      message: !users ? empty_list : lists_of_items,
     });
   } catch (err) {
     return res.json({
