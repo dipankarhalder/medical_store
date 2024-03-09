@@ -100,14 +100,30 @@ export const med_schema = Joi.object({
     'string.empty': 'Busket id can not be an empty field.',
     'any.required': 'Busket id is a required field.',
   }),
-  pices: Joi.string().required().messages({
-    'string.base': 'Pices should be a type of string.',
-    'string.empty': 'Pices can not be an empty field.',
+  pices: Joi.number().required().messages({
     'any.required': 'Pices is a required field.',
   }),
-  price: Joi.string().required().messages({
-    'string.base': 'Price should be a type of string.',
-    'string.empty': 'Price can not be an empty field.',
+  price: Joi.number().required().messages({
+    'any.required': 'Price is a required field.',
+  }),
+  exp_date: Joi.string().required().messages({
+    'string.base':
+      'Expire date should be a type of string.',
+    'string.empty':
+      'Expire date can not be an empty field.',
+    'any.required': 'Expire date is a required field.',
+  }),
+});
+export const med_update_schema = Joi.object({
+  name: Joi.string().required().messages({
+    'string.base': 'Name should be a type of string.',
+    'string.empty': 'Name can not be an empty field.',
+    'any.required': 'Name is a required field.',
+  }),
+  pices: Joi.number().required().messages({
+    'any.required': 'Pices is a required field.',
+  }),
+  price: Joi.number().required().messages({
     'any.required': 'Price is a required field.',
   }),
   exp_date: Joi.string().required().messages({

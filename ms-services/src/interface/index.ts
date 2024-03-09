@@ -16,7 +16,8 @@ export interface ISlot extends Document {
 export interface IMedicine extends Document {
   name: string;
   busket_id: string;
-  pices: string;
-  price: string;
+  pices: number;
+  price: number;
   exp_date: string;
+  per_pices: number;
 }
