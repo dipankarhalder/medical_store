@@ -8,7 +8,7 @@ import {
   DELETESLOT,
 } from '../config/routers';
 import {
-  create_slots,
+  create_slot,
   get_all_slots,
   view_slot,
   update_slot,
@@ -16,7 +16,7 @@ import {
 } from '../controllers/slots';
 
 export default (router: Router) => {
-  router.post(CREATESLOT, create_slots);
+  router.post(CREATESLOT, create_slot);
   router.get(LISTSLOTS, get_all_slots);
   router.get(VIEWSLOT, view_slot);
   router.patch(UPDATESLOT, update_slot);

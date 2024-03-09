@@ -15,3 +15,10 @@ export const LISTSLOTS = '/v1/slots';
 export const VIEWSLOT = '/v1/slot/:slotid';
 export const UPDATESLOT = '/v1/slot/:slotid';
 export const DELETESLOT = '/v1/slot/:slotid';
+
+// medicine
+export const CREATEMED = '/v1/med';
+export const LISTMEDS = '/v1/meds';
+export const VIEWMED = '/v1/med/:medid';
+export const UPDATEMED = '/v1/med/:medid';
+export const DELETEMED = '/v1/med/:medid';
