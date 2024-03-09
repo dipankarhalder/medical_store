@@ -68,7 +68,7 @@ export const view_slot = async (
   @endpoint: /v1/slot
   @details: create slot
 */
-export const create_slots = async (
+export const create_slot = async (
   req: Request,
   res: Response
 ) => {

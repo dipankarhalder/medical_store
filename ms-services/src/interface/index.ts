@@ -12,3 +12,11 @@ export interface IUser extends Document {
 export interface ISlot extends Document {
   slot_name: string;
 }
+
+export interface IMedicine extends Document {
+  name: string;
+  busket_id: string;
+  pices: string;
+  price: string;
+  exp_date: string;
+}
