@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "becc38a0-50e0-45e8-b752-a378fa75e5c0",
+		"name": "medical_store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3836060"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sign_up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"first_name\": \"Dipankar\", \n    \"last_name\": \"Halder\", \n    \"email\": \"programmingwithdip@gmail.com\", \n    \"phone\": \"9038716514\",\n    \"password\": \"Dip123456#\",\n    \"role\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign_in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"programmingwithdip@gmail.com\", \n    \"password\": \"Dipankar123456#\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "user_lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/users/userlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"userlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Ronit\", \n    \"last_name\": \"Roy\", \n    \"phone\": \"9038710000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/user/65e40dbae8ebc784988996c1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"user",
+								"65e40dbae8ebc784988996c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/user/65e414251e1e4fbf8a2726cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"user",
+								"65e414251e1e4fbf8a2726cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/user/65eb4b69e95b61e4c35ddc7b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"user",
+								"65eb4b69e95b61e4c35ddc7b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "slots",
+			"item": [
+				{
+					"name": "create_slot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slot_name\": \"Backpain remover\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/slot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "slot_lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/slots",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"slots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_slot",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slot_name\": \"create slots\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/slot/65eb3a2f894c6ce765c06b2c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"slot",
+								"65eb3a2f894c6ce765c06b2c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view_slot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/slot/65eb4b1ae95b61e4c35ddc74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"slot",
+								"65eb4b1ae95b61e4c35ddc74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_slot",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/slot/65eb3a2f894c6ce765c06b2c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"slot",
+								"65eb3a2f894c6ce765c06b2c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "medicine",
+			"item": [
+				{
+					"name": "medicine_lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/65eb4b1ae95b61e4c35ddc74/meds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"65eb4b1ae95b61e4c35ddc74",
+								"meds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_medicine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rantac 300\",\n    \"busket_id\": \"234784\",\n    \"pices\": \"20\",\n    \"price\": \"1600\",\n    \"exp_date\": \"20-04-2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/65eb4b1ae95b61e4c35ddc74/med",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"65eb4b1ae95b61e4c35ddc74",
+								"med"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_medicine",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Combiflam 600\",\n    \"pices\": \"30\",\n    \"price\": \"1280\",\n    \"exp_date\": \"25-04-2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/65ecc1e3359debb28eb9a61f/med/65f528a72e02457416d694b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"65ecc1e3359debb28eb9a61f",
+								"med",
+								"65f528a72e02457416d694b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view_medicine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/65ecc1e3359debb28eb9a61f/med/65f528a72e02457416d694b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"65ecc1e3359debb28eb9a61f",
+								"med",
+								"65f528a72e02457416d694b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_medicine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/65ecc1e3359debb28eb9a61f/med/65f528a72e02457416d694b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"65ecc1e3359debb28eb9a61f",
+								"med",
+								"65f528a72e02457416d694b3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
